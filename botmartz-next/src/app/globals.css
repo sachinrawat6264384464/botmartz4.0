@@ -1260,47 +1260,56 @@ h1 {
 }
 .system-tile {
   fill: #fff;
-  stroke: #d9d9d9;
-  stroke-width: 1;
+  stroke: rgba(40, 85, 255, 0.4);
+  stroke-width: 1.2;
+  filter: drop-shadow(0 4px 14px rgba(40, 85, 255, 0.08));
 }
 .side-face {
-  fill: #ededed;
-  stroke: #d9d9d9;
-  stroke-width: 0.7;
+  fill: #eef3ff;
+  stroke: rgba(40, 85, 255, 0.25);
+  stroke-width: 0.8;
 }
 .top-face {
-  fill: #fafafa;
-  stroke: #d9d9d9;
-  stroke-width: 0.7;
+  fill: #f6f9ff;
+  stroke: rgba(40, 85, 255, 0.25);
+  stroke-width: 0.8;
 }
 .diagram .route {
-  stroke: #c9c9c9;
+  stroke: #2855ff !important;
+  stroke-width: 2.2px !important;
   stroke-dasharray: none;
-  animation: none;
-  stroke-width: 1.2;
+  animation: route-glow-pulse 3.6s ease-in-out infinite;
+  filter: drop-shadow(0 0 5px rgba(40, 85, 255, 0.75)) drop-shadow(0 0 12px rgba(65, 105, 255, 0.4));
 }
 .signal {
-  fill: #111;
+  fill: #2855ff !important;
+  filter: drop-shadow(0 0 6px #2855ff) drop-shadow(0 0 14px #4169ff);
 }
 .core-front {
-  fill: #111;
-  stroke: #111;
+  fill: #060b18;
+  stroke: #2855ff;
+  stroke-width: 1.8;
+  filter: drop-shadow(0 0 10px rgba(40, 85, 255, 0.5));
 }
 .tiletext {
   font: 9px var(--mono);
-  fill: #444;
+  fill: #1e3a8a;
   letter-spacing: 0.08em;
+  font-weight: 600;
 }
 .coretext {
   font: 9px var(--mono);
-  fill: white;
+  fill: #38bdf8;
   letter-spacing: 0.08em;
+  font-weight: 600;
 }
 .tile-icon {
   fill: none;
-  stroke: #555;
-  stroke-width: 1.4;
+  stroke: #2855ff !important;
+  stroke-width: 2.2px !important;
   stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px rgba(40, 85, 255, 0.65));
 }
 .iso-float {
   animation: levitate 7s ease-in-out infinite;

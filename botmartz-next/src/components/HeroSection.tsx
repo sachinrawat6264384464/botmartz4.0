@@ -231,9 +231,12 @@ export default function HeroSection() {
                     stdDeviation="9"
                   />
                 </filter>
+                <filter id="blue-glow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="2.5" floodColor="#2855ff" floodOpacity="0.85" />
+                </filter>
               </defs>
 
-              <g fill="none" strokeLinecap="round">
+              <g fill="none" stroke="#2855ff" strokeWidth="2.2" strokeLinecap="round" filter="url(#blue-glow)">
                 <path
                   className="route"
                   d="M91 104C150 104 132 189 201 189"
@@ -271,7 +274,7 @@ export default function HeroSection() {
                 />
               </g>
 
-              <circle className="signal" r="2.5">
+              <circle className="signal" fill="#2855ff" r="3" filter="url(#blue-glow)">
                 <animateMotion
                   begin="-0.7s"
                   dur="2.53s"
@@ -280,7 +283,7 @@ export default function HeroSection() {
                   <mpath href="#r1" />
                 </animateMotion>
               </circle>
-              <circle className="signal" r="2.5">
+              <circle className="signal" fill="#2855ff" r="3" filter="url(#blue-glow)">
                 <animateMotion
                   begin="-1.4s"
                   dur="2.66s"
@@ -289,7 +292,7 @@ export default function HeroSection() {
                   <mpath href="#r2" />
                 </animateMotion>
               </circle>
-              <circle className="signal" r="2.5">
+              <circle className="signal" fill="#2855ff" r="3" filter="url(#blue-glow)">
                 <animateMotion
                   begin="-2.0999999999999996s"
                   dur="2.79s"
@@ -298,7 +301,7 @@ export default function HeroSection() {
                   <mpath href="#r3" />
                 </animateMotion>
               </circle>
-              <circle className="signal" r="2.5">
+              <circle className="signal" fill="#2855ff" r="3" filter="url(#blue-glow)">
                 <animateMotion
                   begin="-2.8s"
                   dur="2.92s"
@@ -307,7 +310,7 @@ export default function HeroSection() {
                   <mpath href="#r4" />
                 </animateMotion>
               </circle>
-              <circle className="signal" r="2.5">
+              <circle className="signal" fill="#2855ff" r="3" filter="url(#blue-glow)">
                 <animateMotion
                   begin="-3.5s"
                   dur="3.05s"
@@ -316,7 +319,7 @@ export default function HeroSection() {
                   <mpath href="#r5" />
                 </animateMotion>
               </circle>
-              <circle className="signal" r="2.5">
+              <circle className="signal" fill="#2855ff" r="3" filter="url(#blue-glow)">
                 <animateMotion
                   begin="-4.199999999999999s"
                   dur="3.1799999999999997s"
@@ -325,7 +328,7 @@ export default function HeroSection() {
                   <mpath href="#r6" />
                 </animateMotion>
               </circle>
-              <circle className="signal" r="2.5">
+              <circle className="signal" fill="#2855ff" r="3" filter="url(#blue-glow)">
                 <animateMotion
                   begin="-4.8999999999999995s"
                   dur="3.31s"
@@ -340,7 +343,7 @@ export default function HeroSection() {
                   <path className="top-face" d="M0 0l12 -9h84l-12 9z" />
                   <path className="side-face" d="M84 0l12 -9v70l-12 9z" />
                   <rect className="system-tile" height="70" rx="2" width="84" />
-                  <path className="tile-icon" d="M14 18h25m-25 8h39m-39 8h32" />
+                  <path className="tile-icon" stroke="#2855ff" strokeWidth="2.2" strokeLinecap="round" fill="none" filter="url(#blue-glow)" d="M14 18h25m-25 8h39m-39 8h32" />
                   <text className="tiletext" x="12" y="57">
                     DOCUMENTS
                   </text>
@@ -352,7 +355,7 @@ export default function HeroSection() {
                   <path className="top-face" d="M0 0l12 -9h84l-12 9z" />
                   <path className="side-face" d="M84 0l12 -9v70l-12 9z" />
                   <rect className="system-tile" height="70" rx="2" width="84" />
-                  <path className="tile-icon" d="M14 18h25m-25 8h39m-39 8h32" />
+                  <path className="tile-icon" stroke="#2855ff" strokeWidth="2.2" strokeLinecap="round" fill="none" filter="url(#blue-glow)" d="M14 18h25m-25 8h39m-39 8h32" />
                   <text className="tiletext" x="12" y="57">
                     POLICIES
                   </text>
@@ -364,7 +367,7 @@ export default function HeroSection() {
                   <path className="top-face" d="M0 0l12 -9h84l-12 9z" />
                   <path className="side-face" d="M84 0l12 -9v70l-12 9z" />
                   <rect className="system-tile" height="70" rx="2" width="84" />
-                  <path className="tile-icon" d="M14 18h25m-25 8h39m-39 8h32" />
+                  <path className="tile-icon" stroke="#2855ff" strokeWidth="2.2" strokeLinecap="round" fill="none" filter="url(#blue-glow)" d="M14 18h25m-25 8h39m-39 8h32" />
                   <text className="tiletext" x="12" y="57">
                     KNOWLEDGE
                   </text>
@@ -381,15 +384,17 @@ export default function HeroSection() {
                     rx="2"
                     width="110"
                   />
-                  <path className="tile-icon" d="M23 25l29 17 29-17M52 42v12" />
-                  <circle cx="23" cy="25" fill="#111" r="4" />
-                  <circle cx="81" cy="25" fill="#aaa" r="4" />
+                  <path className="tile-icon" stroke="#2855ff" strokeWidth="2.2" strokeLinecap="round" fill="none" filter="url(#blue-glow)" d="M23 25l29 17 29-17M52 42v12" />
+                  <circle cx="23" cy="25" fill="#2855ff" r="4" filter="url(#blue-glow)" />
+                  <circle cx="81" cy="25" fill="#2855ff" r="4" filter="url(#blue-glow)" />
                   <circle
                     cx="52"
                     cy="42"
                     fill="#fff"
                     r="4"
-                    stroke="#555"
+                    stroke="#2855ff"
+                    strokeWidth="2"
+                    filter="url(#blue-glow)"
                   />
                   <text className="tiletext" x="12" y="73">
                     RETRIEVAL
@@ -402,8 +407,8 @@ export default function HeroSection() {
                   <path className="top-face" d="M0 0l12 -9h92l-12 9z" />
                   <path className="side-face" d="M92 0l12 -9v75l-12 9z" />
                   <rect className="system-tile" height="75" rx="2" width="92" />
-                  <path className="tile-icon" d="M17 20h52m-52 9h38m-38 9h45" />
-                  <circle cx="55" cy="29" fill="#111" r="4" />
+                  <path className="tile-icon" stroke="#2855ff" strokeWidth="2.2" strokeLinecap="round" fill="none" filter="url(#blue-glow)" d="M17 20h52m-52 9h38m-38 9h45" />
+                  <circle cx="55" cy="29" fill="#2855ff" r="4" filter="url(#blue-glow)" />
                   <text className="tiletext" x="12" y="62">
                     VERIFY
                   </text>
@@ -415,8 +420,8 @@ export default function HeroSection() {
                   <path className="top-face" d="M0 0l12 -9h91l-12 9z" />
                   <path className="side-face" d="M91 0l12 -9v74l-12 9z" />
                   <rect className="system-tile" height="74" rx="2" width="91" />
-                  <path className="tile-icon" d="M18 25l12 8 24-17" />
-                  <path className="tile-icon" d="M62 18h10m-10 9h10" />
+                  <path className="tile-icon" stroke="#2855ff" strokeWidth="2.2" strokeLinecap="round" fill="none" filter="url(#blue-glow)" d="M18 25l12 8 24-17" />
+                  <path className="tile-icon" stroke="#2855ff" strokeWidth="2.2" strokeLinecap="round" fill="none" filter="url(#blue-glow)" d="M62 18h10m-10 9h10" />
                   <text className="tiletext" x="12" y="61">
                     EVIDENCE
                   </text>
@@ -433,10 +438,12 @@ export default function HeroSection() {
                     cy="27"
                     fill="none"
                     r="13"
-                    stroke="#fff"
+                    stroke="#2855ff"
+                    strokeWidth="2"
+                    filter="url(#blue-glow)"
                   />
-                  <circle cx="50" cy="27" fill="#fff" r="4" />
-                  <path d="M28 49h44" stroke="#777" />
+                  <circle cx="50" cy="27" fill="#2855ff" r="4" filter="url(#blue-glow)" />
+                  <path d="M28 49h44" stroke="#2855ff" strokeWidth="2" strokeLinecap="round" filter="url(#blue-glow)" />
                   <text className="coretext" x="12" y="72">
                     AI AGENT
                   </text>
@@ -453,7 +460,7 @@ export default function HeroSection() {
                     rx="2"
                     width="112"
                   />
-                  <path className="tile-icon" d="M15 18h61m-61 7h39" />
+                  <path className="tile-icon" stroke="#2855ff" strokeWidth="2.2" strokeLinecap="round" fill="none" filter="url(#blue-glow)" d="M15 18h61m-61 7h39" />
                   <text className="tiletext" x="12" y="49">
                     HUMAN REVIEW
                   </text>
