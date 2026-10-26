@@ -5213,47 +5213,379 @@ main > section.hero {
 .hero .diagram svg {
   width: 100% !important;
   height: auto !important;
-  display: block !important;/* ========================================================
-   CLOTH FOLD & UNROLL HEROIC ANIMATION FOR PROBLEM SECTION
+  display: block !important;
+}
+
+
+/* ========================================================
+   CLOTH FOLD & UNROLL HEROIC ENGINE WITH BOTCOM PULL
    ======================================================== */
+
+#production-reality {
+  min-height: auto !important;
+  padding-top: 40px !important;
+  padding-bottom: 60px !important;
+}
+
+main > section#solutions {
+  min-height: auto !important;
+  padding-top: 35px !important;
+}
 
 .problem-payload {
   position: relative !important;
   opacity: 1 !important;
   transform: none !important;
+  padding-bottom: 110px !important;
 }
 
-/* ----------------------------------------------------
-   1. PENDING (FOLDED) STATE:
-   Cloth folded at top (18% visible), BotCom holding hem
-   ---------------------------------------------------- */
-.problem-pending .cloth-fold-wrapper {
-  clip-path: inset(0 0 82% 0 round 14px 14px 10px 10px) !important;
-  transform: perspective(1000px) rotateX(-12deg) scale(0.992) !important;
-  box-shadow: 0 16px 32px rgba(20, 50, 140, 0.14) !important;
+.problem-replay-row {
+  margin-top: 14px !important;
+  margin-bottom: 0 !important;
 }
+
+.problem-carrier {
+  position: relative;
+  perspective: 1200px;
+}
+
+.cloth-unroll-window {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  transform-origin: 50% 0%;
+  will-change: clip-path, transform;
+}
+
+.cloth-bottom-hem {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #d3e2ff 0%, #2855e8 50%, #1e40af 100%);
+  border-radius: 0 0 14px 14px;
+  z-index: 5;
+  box-shadow: 0 2px 6px rgba(40, 85, 232, 0.2);
+  transition: opacity 0.4s ease;
+}
+
+.cloth-creases {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+  transition: opacity 0.3s ease;
+}
+
+.cloth-crease {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 20%,
+    rgba(20, 50, 140, 0.15) 50%,
+    rgba(255, 255, 255, 0.45) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.cloth-crease.c1 { top: 20px; }
+.cloth-crease.c2 { top: 38px; }
+.cloth-crease.c3 { top: 56px; }
+
+.cloth-sheen-sweep {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+}
+
+/* 1. Folded (Pending) State:
+   The banner is folded up into a compact 64px rolled hem with 3D perspective fold,
+   creases visible, and BotCom's hands gripping the bottom edge. */
+.problem-pending .cloth-unroll-window {
+  clip-path: inset(0 0 calc(100% - 64px) 0 round 14px 14px 6px 6px) !important;
+  transform: perspective(1000px) rotateX(-12deg) translateY(-4px) !important;
+  box-shadow: 0 16px 36px rgba(18, 48, 130, 0.16) !important;
+}
+
 .problem-pending .cloth-creases {
-  opacity: 0.95 !important;
+  opacity: 1 !important;
 }
+
+.problem-pending .cloth-bottom-hem {
+  opacity: 1 !important;
+}
+
 .problem-pending .cloth-sheen-sweep {
   opacity: 0 !important;
 }
+
 .problem-pending .problem-bot {
+  top: 50px !important;
   opacity: 1 !important;
-  /* Bot is translated up by exactly -82% to hold the folded hem */
-  transform: translateY(-82%) rotate(13deg) !important;
+  transform: rotate(8deg) !important;
 }
+
 .problem-pending .landing-shadow {
-  opacity: 0.08 !important;
+  opacity: 0.1 !important;
   transform: scaleX(0.5) !important;
 }
 
-/* ----------------------------------------------------
-   2. DROPPING (UNFOLDING) STATE (5.8s slow, smooth):
-   Cloth unfolds down, BotCom slowly pulls down
-   ---------------------------------------------------- */
-.problem-drop-playing .cloth-fold-wrapper {
-  animation: cloth-unfold 5.8s cubic-bezier(0.2, 0.82, 0.25, 1) both !important;
+/* 2. Pulling (Dropping) State:
+   BotCom pulls down with weight & tilt, smoothly unrolling the banner down
+   with cloth ripple, sheen sweep, and elastic settling. */
+.problem-drop-playing .cloth-unroll-window {
+  animation: cloth-pull-unroll 2.4s cubic-bezier(0.22, 1, 0.36, 1) both !important;
 }
+
+.problem-drop-playing .problem-bot {
+  animation: bot-pull-down 2.4s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+}
+
 .problem-drop-playing .cloth-creases {
-  animation: cloth-creases-fade 5.8s cubic-bezier(0.2, 0.82, 0.25, 1) both !importa
+  animation: cloth-creases-fade 2.4s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+}
+
+.problem-drop-playing .cloth-sheen-sweep {
+  animation: cloth-sheen-anim 2.4s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+}
+
+.problem-drop-playing .cloth-bottom-hem {
+  opacity: 1 !important;
+}
+
+.problem-drop-playing .landing-shadow {
+  animation: cloth-landing-shadow 2.4s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+}
+
+.problem-drop-playing .problem-replay {
+  visibility: hidden;
+}
+
+/* 3. Landed State:
+   Full banner is 100% clean and flat; BotCom hangs comfortably from bottom-right edge swaying gently. */
+.problem-landed .cloth-unroll-window {
+  clip-path: none !important;
+  transform: none !important;
+  box-shadow: 0 12px 35px rgba(27, 67, 176, 0.06) !important;
+}
+
+.problem-landed .cloth-creases {
+  display: none !important;
+}
+
+.problem-landed .cloth-sheen-sweep {
+  display: none !important;
+}
+
+.problem-landed .cloth-bottom-hem {
+  opacity: 0 !important;
+}
+
+.problem-landed .problem-bot {
+  top: calc(100% - 14px) !important;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: hanging-sway 4.8s ease-in-out infinite !important;
+}
+
+.problem-landed .landing-shadow {
+  opacity: 0.35 !important;
+  transform: scaleX(1) !important;
+}
+
+/* --- ANIMATION KEYFRAMES --- */
+
+@keyframes cloth-pull-unroll {
+  0% {
+    clip-path: inset(0 0 calc(100% - 64px) 0 round 14px 14px 6px 6px);
+    transform: perspective(1000px) rotateX(-12deg) translateY(-4px);
+  }
+  15% {
+    clip-path: inset(0 0 calc(100% - 110px) 0 round 14px 14px 8px 8px);
+    transform: perspective(1000px) rotateX(-6deg) translateY(-1px);
+  }
+  45% {
+    clip-path: inset(0 0 42% 0 round 14px);
+    transform: perspective(1000px) rotateX(4deg) skewX(-0.3deg);
+  }
+  75% {
+    clip-path: inset(0 0 10% 0 round 14px);
+    transform: perspective(1000px) rotateX(-1.5deg) skewX(0.2deg);
+  }
+  90% {
+    clip-path: inset(0 0 0% 0 round 14px);
+    transform: perspective(1000px) rotateX(0.8deg) translateY(3px);
+  }
+  100% {
+    clip-path: inset(0 0 0% 0 round 14px);
+    transform: perspective(1000px) rotateX(0deg) translateY(0);
+  }
+}
+
+.problem-bot {
+  position: absolute !important;
+  right: 35px !important;
+  width: 160px !important;
+  height: 240px !important;
+  transform-origin: 31% 2% !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+  transition: none !important;
+}
+
+.problem-bot .grip-edge {
+  position: absolute !important;
+  left: 24% !important;
+  top: 1.5% !important;
+  width: 17% !important;
+  height: 5px !important;
+  background: #1e40af !important;
+  border-radius: 3px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25) !important;
+  z-index: 2 !important;
+}
+
+@keyframes bot-pull-down {
+  0% {
+    top: 50px;
+    transform: rotate(8deg);
+  }
+  15% {
+    top: 96px;
+    transform: rotate(-6deg);
+  }
+  45% {
+    top: calc(58% - 14px);
+    transform: rotate(5deg);
+  }
+  75% {
+    top: calc(90% - 14px);
+    transform: rotate(-2deg);
+  }
+  90% {
+    top: calc(100% - 11px);
+    transform: translateY(3px) rotate(1deg);
+  }
+  100% {
+    top: calc(100% - 14px);
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes cloth-creases-fade {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 0.7;
+    transform: translateY(12px);
+  }
+  65% {
+    opacity: 0.25;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+
+@keyframes cloth-sheen-anim {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  70% {
+    top: 75%;
+    opacity: 0.35;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes cloth-landing-shadow {
+  0% {
+    opacity: 0.1;
+    transform: scaleX(0.5);
+  }
+  50% {
+    opacity: 0.22;
+    transform: scaleX(0.8);
+  }
+  100% {
+    opacity: 0.35;
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 1100px) {
+  #production-reality {
+    padding-bottom: 45px !important;
+  }
+  .problem-payload {
+    padding-bottom: 95px !important;
+  }
+  .problem-bot {
+    width: 135px !important;
+    height: 202px !important;
+    right: 20px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  #production-reality {
+    padding-bottom: 35px !important;
+  }
+  main > section#solutions {
+    padding-top: 25px !important;
+  }
+  .problem-payload {
+    padding-bottom: 75px !important;
+  }
+  .problem-bot {
+    width: 105px !important;
+    height: 158px !important;
+    right: 12px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloth-unroll-window {
+    clip-path: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  .cloth-creases,
+  .cloth-sheen-sweep,
+  .cloth-bottom-hem {
+    display: none !important;
+  }
+  .problem-bot {
+    top: calc(100% - 14px) !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

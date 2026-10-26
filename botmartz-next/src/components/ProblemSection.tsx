@@ -23,17 +23,16 @@ export default function ProblemSection() {
     }
     if (problemTimerRef.current) clearTimeout(problemTimerRef.current);
     setEntranceState("dropping");
-    problemTimerRef.current = setTimeout(landProblem, 5800);
+    problemTimerRef.current = setTimeout(landProblem, 2400);
   }, [landProblem]);
 
   const handleReplay = useCallback(() => {
     if (problemTimerRef.current) clearTimeout(problemTimerRef.current);
     setEntranceState("pending");
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        dropProblem();
-      });
-    });
+    // Show folded state so user can clearly see it folded, then BotCom pulls down
+    problemTimerRef.current = setTimeout(() => {
+      dropProblem();
+    }, 450);
   }, [dropProblem]);
 
   useEffect(() => {
@@ -53,18 +52,18 @@ export default function ProblemSection() {
       const rect = carrier.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Trigger smoothly when user reaches the section in the viewport
-      if (rect.top <= windowHeight * 0.70 && rect.bottom >= windowHeight * 0.15) {
+      // Trigger smoothly when section is well into view
+      if (rect.top <= windowHeight * 0.70 && rect.bottom >= windowHeight * 0.1) {
         hasTriggeredRef.current = true;
         window.removeEventListener("scroll", checkScrollPosition);
-        setTimeout(() => {
+        problemTimerRef.current = setTimeout(() => {
           dropProblem();
-        }, 400);
+        }, 350);
       }
     };
 
     window.addEventListener("scroll", checkScrollPosition, { passive: true });
-    const initialCheck = setTimeout(checkScrollPosition, 600);
+    const initialCheck = setTimeout(checkScrollPosition, 250);
 
     return () => {
       window.removeEventListener("scroll", checkScrollPosition);
@@ -112,12 +111,8 @@ export default function ProblemSection() {
           </div>
 
           <div className="problem-carrier" ref={carrierRef}>
-            <div className="cloth-fold-wrapper">
-              <div className="cloth-top-hem" aria-hidden="true">
-                <span className="hem-rivet left"></span>
-                <span className="hem-rivet right"></span>
-              </div>
-
+            {/* The cloth unroll window that folds and clips */}
+            <div className="cloth-unroll-window">
               <div className="compare">
                 <div className="col">
                   <div className="coltitle">DEMO CONDITIONS</div>
@@ -187,14 +182,16 @@ export default function ProblemSection() {
                 </div>
               </div>
 
-              {/* Dynamic cloth fold creases & fabric shimmer */}
+              {/* Dynamic cloth fold creases & fabric shimmer while unfolding */}
               <div className="cloth-creases" aria-hidden="true">
                 <div className="cloth-crease c1"></div>
                 <div className="cloth-crease c2"></div>
                 <div className="cloth-crease c3"></div>
-                <div className="cloth-crease c4"></div>
               </div>
               <div className="cloth-sheen-sweep" aria-hidden="true"></div>
+
+              {/* Bottom hem bar that BotCom grips */}
+              <div className="cloth-bottom-hem" aria-hidden="true"></div>
             </div>
 
             <figure
