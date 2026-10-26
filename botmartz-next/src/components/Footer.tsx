@@ -23,15 +23,13 @@ export default function Footer() {
           {/* Brand Identity & Socials */}
           <div className="foot-brand-col">
             <a className="brand footer-brand" href="#top">
-              <span className="logo-window">
-                <img
-                  alt="Botmartz AI Solutions"
-                  className="company-logo footer-logo"
-                  height="100"
-                  src="/assets/botmartz-logo.png"
-                  width="296"
-                />
-              </span>
+              <img
+                alt="Botmartz AI Solutions"
+                className="footer-logo"
+                height="46"
+                src="/assets/botmartz-logo-dark.png"
+                width="163"
+              />
             </a>
             <p className="footdesc">
               Enterprise AI &amp; Intelligent Systems Implementation. We help
