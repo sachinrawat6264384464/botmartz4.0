@@ -120,7 +120,7 @@ export default function EngineeringSection() {
       <div className="wrap">
         <div className="head">
           <div>
-            <div className="sectionnum">03 / INSIDE THE SYSTEM</div>
+            <div className="sectionnum">04 / INSIDE THE SYSTEM</div>
             <h2>
               Good AI is a system,
               <br />

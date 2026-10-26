@@ -5589,3 +5589,342 @@ main > section#solutions {
     animation: none !important;
   }
 }
+
+/* ========================================================
+   ENTERPRISE PRODUCTION FOOTER
+   ======================================================== */
+.site-footer {
+  background: #020617 !important;
+  color: #94a3b8 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 80px 0 40px !important;
+  position: relative;
+  z-index: 10;
+}
+
+.site-footer .wrap {
+  position: relative;
+}
+
+/* 1. Main Grid: Brand + 4 Columns */
+.foot-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(4, minmax(0, 1fr));
+  gap: 48px;
+  margin-bottom: 52px;
+}
+
+.foot-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 360px;
+}
+
+.footer-brand .footer-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(1.15);
+}
+
+.site-footer .footdesc {
+  font-size: 13.5px !important;
+  line-height: 1.65 !important;
+  color: #8fa0ba !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Socials row */
+.foot-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.social-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Google Review Button */
+.google-review-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 8px;
+  width: fit-content;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+  margin-top: 4px;
+  text-decoration: none;
+}
+
+.google-review-btn:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Link Columns */
+.foot-links-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.foot-col-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+}
+
+.foot-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.foot-links-list li a {
+  color: #94a3b8;
+  font-size: 13.5px;
+  text-decoration: none;
+  line-height: 1.45;
+  transition: color 0.2s ease;
+}
+
+.foot-links-list li a:hover {
+  color: #38bdf8;
+}
+
+/* 2. Newsletter Card */
+.foot-newsletter-card {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: 22px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 38px;
+}
+
+.newsletter-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.newsletter-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  flex-shrink: 0;
+}
+
+.newsletter-title {
+  color: #ffffff;
+  font-size: 15.5px;
+  font-weight: 600;
+  margin: 0 0 3px 0;
+}
+
+.newsletter-desc {
+  color: #8b9bb4;
+  font-size: 13px;
+  margin: 0;
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.newsletter-input {
+  background: rgba(3, 7, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 13.5px;
+  padding: 11px 18px;
+  border-radius: 8px;
+  min-width: 260px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.newsletter-input:focus {
+  border-color: #2563eb;
+}
+
+.newsletter-btn {
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 11px 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.newsletter-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* 3. Bottom Bar */
+.foot-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.foot-bottom-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 13px;
+  color: #8a9bb9;
+  flex-wrap: wrap;
+}
+
+.security-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #cbd5e1;
+}
+
+.foot-bottom-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.foot-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.whatsapp-action {
+  background: rgba(6, 78, 59, 0.25);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+.whatsapp-action:hover {
+  background: rgba(6, 78, 59, 0.45);
+  border-color: rgba(16, 185, 129, 0.6);
+  color: #6ee7b7;
+  transform: translateY(-1px);
+}
+
+.review-action {
+  background: #2563eb;
+  color: #ffffff;
+  border: 1px solid rgba(37, 99, 235, 0.5);
+}
+
+.review-action:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Responsive Footer */
+@media (max-width: 1100px) {
+  .foot-main-grid {
+    grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 1fr));
+    gap: 36px;
+  }
+  .foot-newsletter-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .newsletter-form {
+    width: 100%;
+  }
+  .newsletter-input {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-footer {
+    padding: 60px 0 35px !important;
+  }
+  .foot-main-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .newsletter-form {
+    flex-direction: column;
+    width: 100%;
+  }
+  .newsletter-input,
+  .newsletter-btn {
+    width: 100%;
+  }
+  .foot-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .foot-bottom-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .foot-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

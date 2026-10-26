@@ -6,7 +6,7 @@ export default function PrinciplesSection() {
       <div className="wrap">
         <div className="head">
           <div>
-            <div className="sectionnum">04 / ENGINEERING PRINCIPLES</div>
+            <div className="sectionnum">03 / ENGINEERING PRINCIPLES</div>
             <h2>
               Built to be inspected.
               <br />
